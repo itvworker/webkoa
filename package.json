@@ -1,0 +1,25 @@
+{
+  "name": "webkoa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "del": "^3.0.0",
+    "global": "^4.3.2",
+    "koa": "^2.5.2",
+    "koa-body": "^4.0.4",
+    "koa-bodyparser": "^4.2.1",
+    "koa-busboy": "^1.1.1",
+    "koa-cors": "^0.0.16",
+    "koa-ejs": "^4.1.2",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.2.8",
+    "supervisor": "^0.12.0"
+  }
+}
