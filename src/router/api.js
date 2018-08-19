@@ -1,17 +1,7 @@
 const path = require('path');
 const api = path.join(__dirname, '../controllers/api');
 const middleware = path.join(__dirname, '../middleware/api')
-function resolve(arr) {
-    return arr.map((value) => {
-        let array = value.controller.split('@');
-        value.controller = path.join(api, array[0]);
-        value.action =  array[1];
-        if(value.middleware){
-            value.middleware = path.join(middleware, value.middleware);
-        }
-        return value;
-    })
-}
+const $r = require('./common');
 
 //路由配置
 let controllers = [
@@ -20,7 +10,7 @@ let controllers = [
         method: "get" ,
         path: "/user/reg",
         controller: '/user/Index@reg', //@后面是方法
-        middleware: '/User' //前置操作中间件
+        middleware: ['/User',"/Data"] //前置操作中间件
     },
     {
         name: 'userLogin',
@@ -29,4 +19,4 @@ let controllers = [
         controller: '/user/Index@login'
     }
 ]
-module.exports = resolve(controllers);
+module.exports = $r.resolve(controllers,api,middleware);
