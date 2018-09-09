@@ -14,9 +14,15 @@ let controllers = [
     },
     {
         name: 'userLogin',
-        method: 'get',
+        method: 'post',
         path: "/user/login",
         controller: '/user/Index@login'
+    },
+    {
+        name: 'userAdd',
+        method: 'get',
+        path: "/user/add",
+        controller: '/user/Index@add'
     }
 ]
 module.exports = $r.resolve(controllers,api,middleware);

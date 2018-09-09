@@ -1,7 +1,10 @@
 const path = require('path');
 const cors = require('@koa/cors');
+const koajson = require('koa-json');
 exports.createRouter = function(app, opts, router) {
-    router.use(cors());
+    app.use(cors());
+    router.use(koajson());
+
     opts.forEach(function(item, index) {
         //先执行中间件
         if (item.middleware && isArray(item.middleware)) {
@@ -13,20 +16,22 @@ exports.createRouter = function(app, opts, router) {
             app.use(require(item.middleware)())
         }
 
+        //执行init
         let ctrl = require(item.controller);
         router.use(async (ctx, next) => {
             ctrl.ctx = ctx;
             ctrl.next = next;
             if (ctrl.init) {
-                ctrl.init();
+              await ctrl.init();
             } else {
-                next();
+                await  next();
             }
+
         })
 
         //生成路由
-        router[item.method](item.name, item.path, async function(ctx, next) {
-            ctrl[item.action]();
+        router[item.method](item.name, item.path, async function(ctx, next){
+            await ctrl[item.action]();
         })
     })
 

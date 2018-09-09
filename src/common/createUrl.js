@@ -2,7 +2,6 @@ exports.createRouter = function(app,opts,router) {
 
     opts.forEach(function(item,index){
         //先执行中间件
-
         if(item.middleware){
             app.use(require(item.middleware)())
         }
@@ -17,10 +16,8 @@ exports.createRouter = function(app,opts,router) {
                 next();
             }
         })
-        console.log(item.path);
         //生成路由
         router[item.method](item.name, item.path, async function(ctx,next) {
-
            ctrl[item.action]();
         })
 

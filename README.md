@@ -14,3 +14,6 @@ html2canvas.js//将html转换成图片
     │  └─api
     ├─model 模型
     └─router 路由
+
+
+    mongod --config F:\mongodb\mongo.config --dbpath F:\mongodb\data\db --logpath F:\mongodb\data\log\mongod.log --bind_ip 0.0.0.0 --install --serviceName "MongoDB"

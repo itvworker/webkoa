@@ -1,0 +1,8 @@
+{
+    "name": "测试APIs",
+    "version": "1.0.0",
+    "description": "接口测试",
+    "title": "APP",
+    "url" : "http://www.baidu.com/",
+    "sampleUrl" : "http://www.baidu.com/"
+}

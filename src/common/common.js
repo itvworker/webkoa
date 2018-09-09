@@ -80,16 +80,15 @@ class Tool{
     dataJson(err_code, err_msg, data) {
         if (data) {
             return {
-                err_code: err_code,
-                err_msg: err_msg,
+                code: err_code,
+                msg: err_msg,
                 data: data
             }
 
         } else {
             return {
-                err_code: err_code,
-                err_msg: err_msg,
-
+                code: err_code,
+                msg: err_msg
             }
         }
     }
@@ -292,6 +291,13 @@ class Tool{
         return type.slice(8, -1).toLowerCase();
     }
 
+    model(val){
+      return require(config.model+val+'.model.js');
+    }
+
+    overTime(resolve){
+
+    }
 
 }
 module.exports = new Tool();

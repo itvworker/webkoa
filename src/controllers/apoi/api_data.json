@@ -1,0 +1,113 @@
+[
+  {
+    "type": "get",
+    "url": "/company/list",
+    "title": "获取公司信息",
+    "name": "______",
+    "group": "All",
+    "version": "0.1.0",
+    "description": "<p>接口详细描述</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "pageNum",
+            "description": "<p>分页大小</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>结果码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>消息说明</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>分页数据封装</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.count",
+            "description": "<p>总记录数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.list",
+            "description": "<p>分页数据对象数组</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " HTTP/1.1 200 OK\n{\ncode:0,\nmsg:'success',\ndata:{}\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "All",
+            "description": "<p>对应<code>id</code>的用户没找到 asdfasdf</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 Not Found\n{\n code:1,\n msg:'user not found',\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/article/Index.js",
+    "groupTitle": "All",
+    "sampleRequest": [
+      {
+        "url": "http://www.baidu.com//company/list"
+      }
+    ]
+  },
+  {
+    "type": "",
+    "url": "public",
+    "title": "",
+    "version": "0.0.0",
+    "filename": "api/article/Index.js",
+    "group": "F__Project_webkoa_src_controllers_api_article_Index_js",
+    "groupTitle": "F__Project_webkoa_src_controllers_api_article_Index_js",
+    "name": "Public",
+    "sampleRequest": [
+      {
+        "url": "http://www.baidu.com/public"
+      }
+    ]
+  }
+]

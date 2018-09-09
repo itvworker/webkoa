@@ -109,7 +109,17 @@ class Index {
             });
         })
     };
-    //图片列表
+
+    /**
+     * 查找图片列表
+     * @param {Object} arg 查找图片列表
+     * @param {Object} arg.query 查找条健
+     * @param {Object} arg.sort 条件排列
+     * @param {Object} arg.num 查询数量
+     * @param {Number} arg.page 页数
+     * @return {Object} arg middleware
+     * @api public
+     */
     async find(arg) {
         arg['query'] = arg['query']
             ? arg['query']
@@ -146,13 +156,25 @@ class Index {
             return {err_code: 500, err_msg: '错误', err: err}
         })
     }
+    /**
+     * 获取图片数量
+     * @param {Object} query 查找条健
+     * @return {Object}
+     * @api public
+     */
     //获取条数
     count(query) {
         return this.model.find(query).count(function(result) {
             return result;
         });
     }
-    //插入多数据
+
+    /**
+     * 插入多条数据
+     * @param {Aarry} data 数组对象
+     * @return {Object}
+     * @api public
+     */
     inserts(data) {
         return new this.model.insertMany(data).then(function(result) {
             return tool.dataJson(200, '上传成功', result);
@@ -242,7 +264,6 @@ class Index {
                 if (!err) {
                     resolve(true);
                 } else {
-                    console.log(err);
                     resolve(false);
                 }
             });
